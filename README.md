@@ -26,7 +26,7 @@ In any class:
 
       include Trellatin
       
-      trellatin user: 'joshuarowley', board: 'test', list: 'To Do'
+      trellatin username: 'joshuarowley', board: 'test', list: 'To Do'
 
       def title
         # method to be saved in a card's title field
