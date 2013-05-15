@@ -1,4 +1,4 @@
-require "trellatin/version"
+require_relative "trellatin/version"
 
 require_relative 'trellatin/persistence'
 

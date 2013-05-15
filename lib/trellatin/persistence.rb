@@ -1,4 +1,5 @@
 require 'active_support/core_ext'
+require 'trello'
 
 module Trellatin
 
@@ -10,10 +11,35 @@ module Trellatin
       self.options = {}
     end
 
+
     module ClassMethods
+
+      def configure_client
+        if options[:app_key] && options[:token]
+
+          Trello.configure do |config|
+            config.developer_public_key = options[:app_key]
+            config.member_token         = options[:token]
+          end
+
+        end
+      end
+
+      def trello_owner
+        Trello::Member.find(options[:owner])
+      end
+
+      def trello_board
+        Trello::Board.find(options[:board])
+      end
+
+      def trello_list
+        Trello::List.find(options[:list])
+      end
 
       def trellatin(options = {})
         self.options = options
+        self.configure_client
       end
 
     end
