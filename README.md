@@ -18,7 +18,25 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    require 'trellatin'
+
+In any class:
+
+    class Submission
+
+      include Trellatin
+      
+      trellatin user: 'joshuarowley', board: 'test', list: 'To Do'
+
+      def title
+        # method to be saved in a card's title field
+      end
+
+      def description
+        # method to be saved in a card's description
+      end
+
+    end
 
 ## Contributing
 
