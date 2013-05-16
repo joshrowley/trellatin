@@ -12,10 +12,13 @@ module Trellatin
     end
 
     def save
+      name        = self.class.options[:name] || :name
+      description = self.class.options[:description] || :description
+
       Trello::Card.create(
-        name:         send(self.class.options[:name]),
-        description:  send(self.class.options[:description]),
-        list_id:      self.class.options[:list]
+        name:         send(name),
+        description:  send(description),
+        list_id:      self.class.list.id
       )
     end
 

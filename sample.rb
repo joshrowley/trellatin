@@ -8,21 +8,17 @@ class Submission
     board:        'trello',
     list:         'To Do',
     app_key:      ENV['APP_KEY'],
-    token:        ENV['TOKEN'],
-    name:         :name,
-    description:  :description
+    token:        ENV['TOKEN']
   })
 
   def name
-    'test'
+    'Finish Trellatin'
   end
 
   def description
-    'description'
+    'open source that shiet!'
   end
 
 end
 
-puts Submission.owner.username
-puts Submission.board.name
-puts Submission.list.name
+Submission.new.save

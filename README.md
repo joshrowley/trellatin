@@ -32,8 +32,8 @@ In any class:
         list:    'To Do'
         app_key:      ENV['APP_KEY'],
         token:        ENV['TOKEN'],
-        name:         :some_method,
-        description:  :another_method
+        name:         :some_method,     # optional, defaults to :name
+        description:  :another_method   # optional, defaults to :description
       })
 
       def some_method
