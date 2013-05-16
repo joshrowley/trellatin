@@ -31,8 +31,6 @@ module Trellatin
           end
 
         end
-
-        set_trello_objects
       end
 
       def set_trello_objects
@@ -56,6 +54,7 @@ module Trellatin
       def trellatin(options = {})
         self.options = options
         configure_client
+        set_trello_objects
       end
 
     end
