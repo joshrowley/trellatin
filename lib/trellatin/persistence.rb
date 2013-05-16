@@ -11,7 +11,7 @@ module Trellatin
       self.options = {}
     end
 
-    def save
+    def save_card
       name        = self.class.options[:name] || :name
       description = self.class.options[:description] || :description
 

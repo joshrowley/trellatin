@@ -21,4 +21,4 @@ class Submission
 
 end
 
-Submission.new.save
+Submission.new.save_card
