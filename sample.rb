@@ -7,8 +7,8 @@ class Submission
     owner:        'joshuarowley',
     board:        'trello',
     list:         'To Do',
-    app_key:      '08945e3bfcc0d9d76fe12490be3c7c6c',
-    token:        '46d4c720a6b2fa2aeef33a0abbce358070d951e35c0ea42fc5835887b47e7fe9',
+    app_key:      ENV['APP_KEY'],
+    token:        ENV['TOKEN'],
     name:         :name,
     description:  :description
   })

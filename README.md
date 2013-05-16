@@ -24,19 +24,37 @@ In any class:
 
     class Submission
 
-      include Trellatin
+      include Trellatin::Persistence
       
-      trellatin username: 'joshuarowley', board: 'test', list: 'To Do'
+      trellatin({
+        owner:   'joshuarowley',
+        board:   'test',
+        list:    'To Do'
+        app_key:      ENV['APP_KEY'],
+        token:        ENV['TOKEN'],
+        name:         :some_method,
+        description:  :another_method
+      })
 
-      def title
+      def some_method
         # method to be saved in a card's title field
+        'foobar'
       end
 
-      def description
+      def another_method
         # method to be saved in a card's description
+        'Hello World!'
       end
 
     end
+
+    Submission.new.save #=> creates card on Trello list with 'foobar' name,
+                        #   and 'Hello World!' in the description
+
+Not yet implemented, when not passing in name & description arguments, 
+Trellatin will look for an instance method called 'name' for the card 
+name and 'description' for the card description.
+
 
 ## Contributing
 
