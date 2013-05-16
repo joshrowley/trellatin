@@ -5,12 +5,12 @@ class Submission
 
   trellatin ({
     owner:        'joshuarowley',
-    board:        '5192a81f88dbd6d71100048e',
-    list:         '5192a81f88dbd6d71100048f',
-    app_key:      ENV['APP_KEY'],
-    token:        ENV['TOKEN'],
-    name:         :name, # method that will save as the card name
-    description:  :description #method that will save as the card description
+    board:        'trello',
+    list:         'To Do',
+    app_key:      '08945e3bfcc0d9d76fe12490be3c7c6c',
+    token:        '46d4c720a6b2fa2aeef33a0abbce358070d951e35c0ea42fc5835887b47e7fe9',
+    name:         :name,
+    description:  :description
   })
 
   def name
@@ -23,4 +23,6 @@ class Submission
 
 end
 
-Submission.new.save
+puts Submission.owner.username
+puts Submission.board.name
+puts Submission.list.name

@@ -7,7 +7,7 @@ module Trellatin
     extend ActiveSupport::Concern
 
     included do
-      class_attribute :options
+      class_attribute :options, :owner, :board, :list
       self.options = {}
     end
 
@@ -31,23 +31,31 @@ module Trellatin
           end
 
         end
+
+        set_trello_objects
       end
 
-      def trello_owner
-        Trello::Member.find(options[:owner])
+      def set_trello_objects
+        self.set_owner
+        self.set_board
+        self.set_list
       end
 
-      def trello_board
-        Trello::Board.find(options[:board])
+      def set_owner
+        self.owner = Trello::Member.find(options[:owner])
       end
 
-      def trello_list
-        Trello::List.find(options[:list])
+      def set_board
+        self.board = owner.boards.select { |b| b.name == options[:board] }.first
+      end
+
+      def set_list
+        self.list = board.lists.select { |l| l.name == options[:list] }.first
       end
 
       def trellatin(options = {})
         self.options = options
-        self.configure_client
+        configure_client
       end
 
     end
