@@ -1,7 +1,6 @@
-require_relative "trellatin/version"
-
-require_relative 'trellatin/persistence'
+require "trellatin/version"
+require 'trellatin/persistence'
 
 module Trellatin
-  # Your code goes here...
+
 end

@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "trellatin"
   spec.version       = Trellatin::VERSION
   spec.authors       = ["Josh Rowley"]
-  spec.email         = ["josh.rowley@carrotcreative.com"]
+  spec.email         = ["joshua.f.rowley@gmail.com"]
   spec.description   = %q{Inherit from Trellatin to easily use Trello as a persistence layer for your classes.}
   spec.summary       = %q{Use Trello as a persistence layer.}
   spec.homepage      = ""
@@ -18,8 +18,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "activesupport"
-  spec.add_development_dependency "ruby-trello"
+  spec.add_dependency "bundler", "~> 1.3"
+  spec.add_dependency "rake"
+  spec.add_dependency "activesupport"
+  spec.add_dependency "ruby-trello"
 end
