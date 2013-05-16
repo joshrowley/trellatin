@@ -11,6 +11,14 @@ module Trellatin
       self.options = {}
     end
 
+    def save
+      Trello::Card.create(
+        name:         send(self.class.options[:name]),
+        description:  send(self.class.options[:description]),
+        list_id:      self.class.options[:list]
+      )
+    end
+
 
     module ClassMethods
 

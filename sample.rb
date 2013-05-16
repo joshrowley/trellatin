@@ -1,15 +1,16 @@
 require_relative 'lib/trellatin'
-require 'debugger'
 
 class Submission
   include Trellatin::Persistence
 
   trellatin ({
-    owner:      'joshuarowley',
-    board:      '5192a81f88dbd6d71100048e',
-    list:       '5192a81f88dbd6d71100048f',
-    app_key:    '08945e3bfcc0d9d76fe12490be3c7c6c',
-    token:      '5e28c5357f8d3c20654a123c452f8893887d1a38c8bd5745fc0219fce8828478',
+    owner:        'joshuarowley',
+    board:        '5192a81f88dbd6d71100048e',
+    list:         '5192a81f88dbd6d71100048f',
+    app_key:      ENV['APP_KEY'],
+    token:        ENV['TOKEN'],
+    name:         :name, # method that will save as the card name
+    description:  :description #method that will save as the card description
   })
 
   def name
@@ -22,5 +23,4 @@ class Submission
 
 end
 
-puts Submission.options
-puts Submission.trello_list.inspect
+Submission.new.save
