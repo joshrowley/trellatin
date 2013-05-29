@@ -12,8 +12,8 @@ module Trellatin
     end
 
     def save_card
-      name        = self.class.options[:name] || :name
-      description = self.class.options[:description] || :description
+      name        = self.class.options[:name]         || :name
+      description = self.class.options[:description]  || :description
 
       Trello::Card.create(
         name:         send(name),
@@ -26,13 +26,9 @@ module Trellatin
     module ClassMethods
 
       def configure_client
-        if options[:app_key] && options[:token]
-
-          Trello.configure do |config|
-            config.developer_public_key = options[:app_key]
-            config.member_token         = options[:token]
-          end
-
+        Trello.configure do |config|
+          config.developer_public_key = options[:app_key] || Trellatin::Config.app_key
+          config.member_token         = options[:token]   || Trellatin::Config.token
         end
       end
 

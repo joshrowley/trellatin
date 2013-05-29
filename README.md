@@ -20,6 +20,15 @@ Or install it yourself as:
 
     require 'trellatin'
 
+Set global configuration options. You could put this in `config/initializers/trellatin.rb` if using Rails:
+
+```ruby
+Trellatin.configure do |config|
+  config.app_id = ENV['APP_ID']
+  config.token  = ENV['TOKEN']
+end
+```
+
 In any class:
 
 ```ruby
@@ -30,9 +39,9 @@ class Submission
   trellatin({
     owner:   'joshuarowley',
     board:   'test',
-    list:    'To Do'
-    app_key:      ENV['APP_KEY'],
-    token:        ENV['TOKEN'],
+    list:    'To Do',
+    app_key:      ENV['APP_KEY'],   # optional if defined in initializer
+    token:        ENV['TOKEN'],     # optional if defined in initializer
     name:         :some_method,     # optional, defaults to :name
     description:  :another_method   # optional, defaults to :description
   })
@@ -49,8 +58,8 @@ class Submission
 
 end
 
-Submission.new.save #=> creates card on Trello list with 'foobar' name,
-                    #   and 'Hello World!' in the description
+Submission.new.save_card  #=> creates card on Trello list with 'foobar' name,
+                          #   and 'Hello World!' in the description
 ```
 
 ## Contributing
